@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_features_sections",
+  "info": {
+    "displayName": "Features Section",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.content-block"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_content_blocks",
+  "info": {
+    "displayName": "Content Block",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraphs": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "reverse_layout": {
+      "type": "boolean",
+      "default": false
+    },
+    "background_color": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "light",
+        "dark"
+      ],
+      "default": "white"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_rich_texts",
+  "info": {
+    "displayName": "Rich Text",
+    "icon": "text-width",
+    "description": "A rich text editor block for long-form content like blogs."
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

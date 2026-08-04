@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_latest_blogs",
+  "info": {
+    "displayName": "Latest Blogs",
+    "icon": "layer-group"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Informing you with industry focused updates"
+    },
+    "tag": {
+      "type": "string",
+      "default": "LATEST BLOGS"
+    },
+    "selected_blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page"
+    }
+  }
+}
