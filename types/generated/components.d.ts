@@ -1,5 +1,21 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SectionsFaqSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_faq_sections';
+  info: {
+    description: 'A section containing multiple FAQs';
+    displayName: 'FAQ Section';
+    icon: 'comments';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    faqs: Schema.Attribute.Component<'shared.faq-item', true>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Frequently Asked Questions'>;
+  };
+}
+
 export interface SectionsFeaturesSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_features_sections';
   info: {
@@ -55,6 +71,19 @@ export interface SharedContentBlock extends Struct.ComponentSchema {
     reverse_layout: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_items';
+  info: {
+    description: 'A single Question and Answer item';
+    displayName: 'FAQ Item';
+    icon: 'question';
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -115,10 +144,12 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'sections.faq-section': SectionsFaqSection;
       'sections.features-section': SectionsFeaturesSection;
       'sections.latest-blogs': SectionsLatestBlogs;
       'sections.overview-section': SectionsOverviewSection;
       'shared.content-block': SharedContentBlock;
+      'shared.faq-item': SharedFaqItem;
       'shared.hero-banner': SharedHeroBanner;
       'shared.link-item': SharedLinkItem;
       'shared.rich-text': SharedRichText;

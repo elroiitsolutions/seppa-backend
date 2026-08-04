@@ -536,6 +536,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.content-block',
         'sections.latest-blogs',
         'shared.rich-text',
+        'sections.faq-section',
       ]
     >;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;

@@ -61,7 +61,8 @@
         "sections.features-section",
         "shared.content-block",
         "sections.latest-blogs",
-        "shared.rich-text"
+        "shared.rich-text",
+        "sections.faq-section"
       ]
     },
     "category": {
