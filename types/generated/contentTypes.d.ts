@@ -538,7 +538,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.rich-text',
         'sections.faq-section',
       ]
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -546,11 +551,21 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     full_path: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    hero: Schema.Attribute.Component<'shared.hero-banner', false>;
+    hero: Schema.Attribute.Component<'shared.hero-banner', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'>;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'shared.seo', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     template: Schema.Attribute.Enumeration<
