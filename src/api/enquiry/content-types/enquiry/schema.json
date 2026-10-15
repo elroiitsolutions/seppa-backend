@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "enquiries",
+  "info": {
+    "singularName": "enquiry",
+    "pluralName": "enquiries",
+    "displayName": "Enquiry",
+    "description": "Customer enquiries from website forms"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "form_type": {
+      "type": "enumeration",
+      "enum": [
+        "scroll",
+        "contact",
+        "dealer",
+        "investor",
+        "product"
+      ],
+      "default": "product"
+    },
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone_number": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "proposed_dealership_region": {
+      "type": "string"
+    },
+    "investment_interest": {
+      "type": "string"
+    },
+    "product_interest": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "page_url": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "contacted",
+        "in_progress",
+        "closed"
+      ],
+      "default": "new"
+    }
+  }
+}
