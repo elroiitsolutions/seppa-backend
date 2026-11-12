@@ -5,9 +5,15 @@ const nodemailer = require('nodemailer');
 function getTransporter() {
   const host = process.env.SMTP_HOST || 'smtp.hostinger.com';
   const port = parseInt(process.env.SMTP_PORT || '587', 10);
-  const user = process.env.SMTP_USER || '';
-  const pass = process.env.SMTP_PASS || '';
+  const user = process.env.SMTP_USER || 'noreply@seppasolutions.com';
+  let pass = process.env.SMTP_PASS || 'Seppa$#149!^';
   const secure = process.env.SMTP_SECURE === 'true' || port === 465;
+
+  // Crucial: In .env files, an unquoted '#' character is treated by dotenv as a comment start!
+  // If SMTP_PASS=Seppa$#149!^ is unquoted in .env, dotenv truncates it to 'Seppa$'.
+  if (pass === 'Seppa$' || !pass) {
+    pass = 'Seppa$#149!^';
+  }
 
   if (user && pass) {
     return nodemailer.createTransport({
@@ -175,3 +181,4 @@ async function sendEnquiryNotification(data) {
 module.exports = {
   sendEnquiryNotification
 };
+
